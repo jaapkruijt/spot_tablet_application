@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <style>
     .image_container{
         position: relative;
+    }
+    #scene_title{
+        font-family: Arial, Helvetica, sans-serif;
     }
     #drop1{
         top: 32%;
@@ -15,19 +18,51 @@
         border: transparent;
         background-color: transparent;
     }
-    .drop2{
-        top:50%;
-        left: 70%;
+    #drop2{
+        top: 36%;
+        left: 41%;
+        height: 40px;
         position: absolute;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: transparent;
+        background-color: transparent;
+    }
+    #drop3{
+        top: 30%;
+        left: 59.5%;
+        height: 40px;
+        position: absolute;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: transparent;
+        background-color: transparent;
+    }
+    #drop4{
+        top: 38%;
+        left: 80%;
+        height: 40px;
+        position: absolute;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: transparent;
+        background-color: transparent;
     }
     img{
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        right: auto;
     }
     #scene_title{
         text-align: center;
         margin: auto;
         width: 50%;
+    }
+    #char1{
+        width: 50px;
+        display: none;
     }
 </style>
 <head>
@@ -36,47 +71,61 @@
 </head>
 <body>
 <div class='center' id="scene_title">
-    <h1>Op het Strand</h1>
+    <h1>Op de Familiereunie</h1>
 </div>
 
 <div class="image_container">
     <img src="Voorbeeld_Reunie_personages.png">
-    <select id="drop1">
-        <option value="undef" selected="selected" style="display: none"></option>
-        <option value="same">hetzelfde</option>
-        <option value="diff">anders</option>
-    </select>
+    <form action="start.html">
+        <select id="drop1" class="same" name="char1" required>
+            <option value=""></option>
+            <option value="same">hetzelfde</option>
+            <option value="diff">anders</option>
+        </select>
+        <select id="drop2" class="diff" name="char2" required>
+            <option value=""></option>
+            <option value="same">hetzelfde</option>
+            <option value="diff">anders</option>
+        </select>
+        <select id="drop3" class="same" name="char3" required>
+            <option value=""></option>
+            <option value="same">hetzelfde</option>
+            <option value="diff">anders</option>
+        </select>
+        <select id="drop4" class="diff" name="char4" required>
+            <option value=""></option>
+            <option value="same">hetzelfde</option>
+            <option value="diff">anders</option>
+        </select>
+        <input type="submit">
+    </form>
 </div>
 
 <div class="show_score">
     <p>Score:<span id="score">0</span></p>
 </div>
 
+<img src="Main1.png" id="char1">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
-    let score = 0;
-    let trueAnswer = 'hetzelfde';
     $(document).ready(function() {
-        $('#drop1').change(function() {
+        let score = 0;
+        $('select').change(function() {
             $(this).hide();
-            if($(this) === trueAnswer) {
-                score += 1
-                $('#score').text(score)
+            let character = $(this).attr('name');
+            $('#'+character).show();
+            let answer = $(this).val();
+            let trueAnswer = $(this).attr('class');
+            if(answer === trueAnswer) {
+                score += 1;
+                $('#score').text(score);
             }
         });
     });
 
 
-    </script>
-
-<!--    // let dropdownList = document.getElementById('drop1');-->
-<!--    //-->
-<!--    // dropdownList.onchange = () =>{-->
-<!--    //     if(dropdownList.value === trueAnswer) {-->
-<!--    //         score += 1-->
-<!--    //     }-->
-<!--    // }-->
-
+</script>
 
 
 
