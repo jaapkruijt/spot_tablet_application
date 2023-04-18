@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="nl">
 <style>
+    body{
+        background-color: lightblue;
+    }
     .image_container{
+        display: inline-block;
+        width: 85%;
         position: relative;
+        float: left;
+    }
+    .discussed{
+        display: inline-block;
+        width: 15%;
+        float: left;
     }
     #scene_title{
         font-family: Arial, Helvetica, sans-serif;
@@ -52,7 +63,7 @@
         background-color: transparent;
     }
     img{
-        width: 80%;
+        width: 100%;
         right: auto;
     }
     #scene_title{
@@ -61,8 +72,36 @@
         width: 50%;
     }
     #char1{
-        width: 50px;
+        width: 50%;
         display: none;
+    }
+    #char2{
+        width: 50%;
+        display: none;
+    }
+    #char3{
+        width: 50%;
+        display: none;
+    }
+    #char4{
+        width: 50%;
+        display: none;
+    }
+    #submit{
+        top: 90%;
+        left: 100%;
+        padding: 10px;
+        margin-left: 5%;
+        position: absolute;
+        cursor: pointer;
+    }
+    #show{
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        cursor: pointer;
     }
 </style>
 <head>
@@ -74,9 +113,10 @@
     <h1>Op de Familiereunie</h1>
 </div>
 
+<div>
 <div class="image_container">
-    <img src="Voorbeeld_Reunie_personages.png">
-    <form action="start.html">
+    <img src="Voorbeeld_Reunie_personages.png" class="hide">
+    <form action="score_round1.html" id="selectform">
         <select id="drop1" class="same" name="char1" required>
             <option value=""></option>
             <option value="same">hetzelfde</option>
@@ -97,20 +137,42 @@
             <option value="same">hetzelfde</option>
             <option value="diff">anders</option>
         </select>
-        <input type="submit">
+        <input type="hidden" name="shown" value="0" id="shown">
+        <input type="hidden" name="score" value="0" id="score">
+        <input type="submit" id="submit" value="Ga door">
     </form>
+    <button id="show" class="show">
+        Laat het plaatje zien!
+    </button>
 </div>
 
-<div class="show_score">
-    <p>Score:<span id="score">0</span></p>
+<div class="discussed">
+<div class="head">
+    <img src="Main1_hoofd.png" id="char1">
+</div>
+<div class="head">
+    <img src="Main2_hoofd.png" id="char2">
+</div>
+<div class="head">
+    <img src="Main3_hoofd.png" id="char3">
+</div>
+<div class="head">
+    <img src="Main4_hoofd.png" id="char4">
+</div>
+</div>
 </div>
 
-<img src="Main1.png" id="char1">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
+    let score = 0;
+    let shown = 0;
     $(document).ready(function() {
-        let score = 0;
+        function fadeOut(){
+            $('.hide').css('visibility','hidden')
+            $('.show').show()
+        }
+        setTimeout(fadeOut, 10000);
         $('select').change(function() {
             $(this).hide();
             let character = $(this).attr('name');
@@ -119,12 +181,18 @@
             let trueAnswer = $(this).attr('class');
             if(answer === trueAnswer) {
                 score += 1;
-                $('#score').text(score);
+                $('#score').val(score);
+                console.log(`score_round1.html?score=${score}`);
             }
         });
+        $('#show').click(function(){
+            $('.hide').css('visibility','visible');
+            $(this).hide();
+            shown += 1;
+            $('#shown').val(shown);
+            setTimeout(fadeOut, 5000);
+        });
     });
-
-
 </script>
 
 
