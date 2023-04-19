@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    body{
+        background-color: lightblue;
+    }
+    div{
+        padding: 10%;
+        text-align: center;
+    }
+    h2{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: large;
+    }
+    #submit{
+        padding: 10px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Score Round 1</title>
 </head>
 <body>
-    <p>
+<div>
+    <h2>
+        Goed gedaan!
+    </h2>
+    <br>
+    <h2>
         Je score voor deze ronde is:
-    </p>
+    </h2>
     <p id="score">
 
     </p>
-<p>
+<h2>
     Je hebt het plaatje zo vaak opnieuw laten zien:
-</p>
+</h2>
 <p id="shown">
 
 </p>
+    <h2>
+        Klik op 'Ga door' om door te gaan naar de volgende ronde van het spel:
+    </h2>
+    <form action="start.html">
+        <input type="hidden" name="total_score" value="0" id="total_score">
+        <input type="submit" id="submit" value="Ga door">
+    </form>
+</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
@@ -25,21 +57,11 @@
     if(searchParams.has("score")){
         let score = searchParams.get("score");
         $('#score').text(score)
+        $('#total_score').val(score)
     }
     if (searchParams.has("shown")){
         let shown = searchParams.get("shown");
         $('#shown').text(`${shown} keer`)
     }
-
-console.log(searchParams.has("topic")); // true
-console.log(searchParams.get("topic") === "api"); // true
-console.log(searchParams.getAll("topic")); // ["api"]
-console.log(searchParams.get("foo") === null); // true
-console.log(searchParams.append("topic", "webdev"));
-console.log(searchParams.toString()); // "q=URLUtils.searchParams&topic=api&topic=webdev"
-console.log(searchParams.set("topic", "More webdev"));
-console.log(searchParams.toString()); // "q=URLUtils.searchParams&topic=More+webdev"
-console.log(searchParams.delete("topic"));
-console.log(searchParams.toString()); // "q=URLUtils.searchParams"
 </script>
 </html>
