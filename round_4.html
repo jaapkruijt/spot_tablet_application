@@ -19,36 +19,47 @@
         font-family: Arial, Helvetica, sans-serif;
     }
     select{
-        /*-moz-appearance: none;*/
-        /*-webkit-appearance: none;*/
-        /*cursor: pointer;*/
-        /*border: transparent;*/
-        /*background-color: transparent;*/
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: transparent;
+        background-color: transparent;
     }
-    #drop1 {
-        top: 38%;
-        left: 21.5%;
-        height: 90px;
+    #drop1{
+        top: 36%;
+        left: 21%;
+        width: 80px;
+        height: 200px;
         position: absolute;
+
     }
     #drop2{
-        top: 40%;
-        left: 42%;
-        height: 90px;
+        top: 36%;
+        left: 32%;
+        width: 80px;
+        height: 200px;
         position: absolute;
     }
     #drop3{
-        top: 37%;
-        left: 55%;
-        height: 90px;
+        top: 38%;
+        left: 42%;
+        width: 80px;
+        height: 200px;
         position: absolute;
     }
     #drop4{
-        top: 37%;
-        left: 76.2%;
-        height: 90px;
+        top: 35%;
+        left: 54%;
+        width: 80px;
+        height: 200px;
         position: absolute;
-
+    }
+    #drop5{
+        top: 35%;
+        left: 66%;
+        width: 80px;
+        height: 200px;
+        position: absolute;
     }
     img{
         width: 100%;
@@ -72,6 +83,38 @@
         display: none;
     }
     #char4{
+        width: 50%;
+        display: none;
+    }
+    #char5{
+        width: 50%;
+        display: none;
+    }
+    #char6{
+        width: 50%;
+        display: none;
+    }
+    #char7{
+        width: 50%;
+        display: none;
+    }
+    #char8{
+        width: 50%;
+        display: none;
+    }
+    #char9{
+        width: 50%;
+        display: none;
+    }
+    #char10{
+        width: 50%;
+        display: none;
+    }
+    #char11{
+        width: 50%;
+        display: none;
+    }
+    #char12{
         width: 50%;
         display: none;
     }
@@ -105,26 +148,31 @@
 <div>
 <div class="image_container">
     <img src="Ronde_Museum_Human_Adult.png" class="hide">
-    <form action="score_round3.html" id="selectform">
+    <form action="score_round4.html" id="selectform">
         <select id="drop1" class="same" name="char1" required>
             <option value=""></option>
-            <option value="same">hetzelfde</option>
-            <option value="diff">anders</option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
         </select>
-        <select id="drop2" class="diff" name="char2" required>
+        <select id="drop2" class="diff" name="char6" required>
             <option value=""></option>
-            <option value="same">hetzelfde</option>
-            <option value="diff">anders</option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
         </select>
-        <select id="drop3" class="same" name="char4" required>
+        <select id="drop3" class="same" name="char3" required>
             <option value=""></option>
-            <option value="same">hetzelfde</option>
-            <option value="diff">anders</option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
         </select>
-        <select id="drop4" class="diff" name="char3" required>
+        <select id="drop4" class="diff" name="char12" required>
             <option value=""></option>
-            <option value="same">hetzelfde</option>
-            <option value="diff">anders</option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
+        </select>
+        <select id="drop5" class="diff" name="char2" required>
+            <option value=""></option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
         </select>
         <input type="hidden" name="shown" value="0" id="shown">
         <input type="hidden" name="score" value="0" id="score">
@@ -140,14 +188,38 @@
     <img src="Main1_v4_Hoofd.png" id="char1">
 </div>
 <div class="head">
-    <img src="Main2_v4_Hoofd.png" id="char2">
+    <img src="Main3_v4_Hoofd.png" id="char2">
 </div>
 <div class="head">
-    <img src="Main3_v4_Hoofd.png" id="char3">
+    <img src="Main4_v4_Hoofd.png" id="char3">
 </div>
 <div class="head">
-    <img src="Main4_v4_Hoofd.png" id="char4">
+    <img src="Zij1.png" id="char4">
 </div>
+    <div class="head">
+        <img src="Zij2.png" id="char5">
+    </div>
+    <div class="head">
+        <img src="Zij3.png" id="char6">
+    </div>
+    <div class="head">
+        <img src="Zij4.png" id="char7">
+    </div>
+    <div class="head">
+        <img src="Zij5.png" id="char8">
+    </div>
+    <div class="head">
+        <img src="Zij6.png" id="char9">
+    </div>
+    <div class="head">
+        <img src="Zij7.png" id="char10">
+    </div>
+    <div class="head">
+        <img src="Zij8.png" id="char11">
+    </div>
+    <div class="head">
+        <img src="Zij9.png" id="char12">
+    </div>
 </div>
 </div>
 
@@ -157,11 +229,11 @@
     let score = 0;
     let shown = 0;
     $(document).ready(function() {
-        // function fadeOut(){
-        //     $('.hide').css('visibility','hidden')
-        //     $('.show').show()
-        // }
-        // setTimeout(fadeOut, 10000);
+        function fadeOut(){
+            $('.hide').css('visibility','hidden')
+            $('.show').show()
+        }
+        setTimeout(fadeOut, 20000);
         $('select').change(function() {
             $(this).hide();
             let character = $(this).attr('name');
@@ -179,7 +251,7 @@
             $(this).hide();
             shown += 1;
             $('#shown').val(shown);
-            setTimeout(fadeOut, 5000);
+            setTimeout(fadeOut, 20000);
         });
     });
 </script>

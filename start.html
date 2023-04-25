@@ -2,20 +2,75 @@
 <html lang="en">
 <style>
     body{
-        background-color: lightblue;
+        background-color: orange;
     }
     .examples{
+        margin: auto;
+        text-align: center;
         display: inline-block;
-        width: 100px;
+        width: 200px;
+    }
+    .faces{
+        float: left;
+        width: 85%;
+        display: inline-block;
+    }
+    .discussed{
+        display: inline-block;
+        width: 15%;
+        float: left;
     }
     .introduction{
-        margin: auto;
-        width: 60%;
+        padding: 10%;
         text-align: center;
         font-size: larger;
+        display: none;
+    }
+    select{
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: transparent;
+        background-color: transparent;
+    }
+    #drop1{
+        top: 31%;
+        left: 26%;
+        width: 100px;
+        height: 200px;
+        position: absolute;
+    }
+    #drop2{
+        top: 31%;
+        left: 40.5%;
+        width: 100px;
+        height: 200px;
+        position: absolute;
+    }
+    #drop3{
+        top: 31%;
+        left: 55%;
+        width: 100px;
+        height: 200px;
+        position: absolute;
+    }
+    #char1{
+        width: 50%;
+        display: none;
+    }
+    #char2{
+        width: 50%;
+        display: none;
+    }
+    #char3{
+        width: 50%;
+        display: none;
+    }
+    .next{
+        padding: 10%;
     }
     img{
-        width: 100px;
+        width: 200px;
         object-fit: contain;
     }
     p{
@@ -28,23 +83,27 @@
     button{
         padding: 10px;
     }
+    #show{
+        margin: auto;
+        padding: 20%;
+        width: 50%;
+        text-align: center;
+    }
+    button{
+        cursor: pointer;
+    }
 </style>
 <head>
     <meta charset="UTF-8">
     <title>Start</title>
 </head>
 <body>
-<h1>Welkom!</h1>
-<form action="round_1.html">
-    <div class="introduction">
-    <p>
-        Leuk dat je meedoet met dit spelletje! Laat me allereerst 4 vrienden van me voorstellen. Onthoud hun gezichten goed. Je ziet ze hier op je scherm:
-    </p>
+<h1>Luister naar Robin</h1>
+<div class="introduction">
+    <div class="faces">
+    <form action="practice_round.html">
     <div class="examples">
         <img src="Main1_v4_Hoofd.png">
-    </div>
-    <div class="examples">
-        <img src="Main2_v4_Hoofd.png">
     </div>
     <div class="examples">
         <img src="Main3_v4_Hoofd.png">
@@ -52,20 +111,59 @@
     <div class="examples">
         <img src="Main4_v4_Hoofd.png">
     </div>
+        <select id="drop1" class="same" name="char1">
+            <option value=""></option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
+        </select>
+        <select id="drop2" class="diff" name="char2">
+            <option value=""></option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
+        </select>
+        <select id="drop3" class="same" name="char3">
+            <option value=""></option>
+            <option value="same">zelfde plek</option>
+            <option value="diff">andere plek</option>
+        </select>
+        <div class="next">
+            <button>
+                Ga door naar de oefenronde
+            </button>
+        </div>
 
-    <p>
-        In dit spel staan ze samen op de foto met andere poppetjes. Wij krijgen allebei deze foto te zien. Alleen staan mijn 4 vrienden in mijn foto niet helemaal op dezelfde plekken als op jouw foto. Laten we samen uitzoeken welke vrienden op andere plekken staan, en welke op dezelfde. Als je hebt uitgevonden of een vriend op dezelfde of een andere plek staat, kun je op het hoofd van die vriend drukken. Er komt dan een menu tevoorschijn waar je kan drukken op 'hetzelfde' als de vriend voor ons op dezelfde plek staat, of 'anders' als de vriend voor ons op een andere plek staat. Als je een keuze hebt gemaakt, komt het hoofd van die vriend aan de rechterkant van het scherm te staan. Als we goed overleggen, vinden we samen de juiste antwoorden en is onze score hoger!
-    </p>
-        <p>
-            Let op: je krijgt het plaatje een paar seconden te zien. Onthoud goed wat je ziet en wie waar staat. Daarna verdwijnt het plaatje en gaan we praten over wat we hebben gezien. Als je het plaatje opnieuw wil bekijken, kun je drukken op 'Laat het plaatje zien'. Je krijgt het plaatje dan weer een paar seconden te zien. Probeer het plaatje zo min mogelijk opnieuw te bekijken, want hierdoor gaat je eindscore omlaag.
-        </p>
-        <p>
-            Laten we het even oefenen met een makkelijk voorbeeldje. In de volgende oefenronde komen mijn vrienden nog niet voor. Klik hieronder op 'ga door' om door te gaan naar de oefenronde.
-        </p>
-    <button>
-        Ga door
+    </form>
+        </div>
+    <div class="discussed">
+<div class="head">
+    <img src="Main1_v4_Hoofd.png" id="char1">
+</div>
+<div class="head">
+    <img src="Main3_v4_Hoofd.png" id="char2">
+</div>
+<div class="head">
+    <img src="Main4_v4_Hoofd.png" id="char3">
+</div>
+</div>
+</div>
+<div id="show">
+    <button  onclick="showScreen()">
+        Laat Robin's vrienden zien
     </button>
-    </div>
-</form>
+</div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    function showScreen(){
+        $('.introduction').show();
+        $('#show').hide();
+    }
+    $(document).ready(function (){
+        $('select').change(function() {
+            $(this).hide();
+            let character = $(this).attr('name');
+            $('#'+character).show();
+        });
+    })
+</script>
 </html>
