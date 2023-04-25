@@ -147,7 +147,7 @@
 
 <div>
 <div class="image_container">
-    <img src="Ronde_Museum_Human_Adult.png" class="hide">
+    <img src="images/scenes/Ronde_Museum_Human_Adult.png" class="hide">
     <form action="score_round4.html" id="selectform">
         <select id="drop1" class="same" name="char1" required>
             <option value=""></option>
@@ -185,40 +185,40 @@
 
 <div class="discussed">
 <div class="head">
-    <img src="Main1_v4_Hoofd.png" id="char1">
+    <img src="images/objects/Main1_v4_Hoofd.png" id="char1">
 </div>
 <div class="head">
-    <img src="Main3_v4_Hoofd.png" id="char2">
+    <img src="images/objects/Main3_v4_Hoofd.png" id="char2">
 </div>
 <div class="head">
-    <img src="Main4_v4_Hoofd.png" id="char3">
+    <img src="images/objects/Main4_v4_Hoofd.png" id="char3">
 </div>
 <div class="head">
-    <img src="Zij1.png" id="char4">
+    <img src="images/objects/Zij1.png" id="char4">
 </div>
     <div class="head">
-        <img src="Zij2.png" id="char5">
+        <img src="images/objects/Zij2.png" id="char5">
     </div>
     <div class="head">
-        <img src="Zij3.png" id="char6">
+        <img src="images/objects/Zij3.png" id="char6">
     </div>
     <div class="head">
-        <img src="Zij4.png" id="char7">
+        <img src="images/objects/Zij4.png" id="char7">
     </div>
     <div class="head">
-        <img src="Zij5.png" id="char8">
+        <img src="images/objects/Zij5.png" id="char8">
     </div>
     <div class="head">
-        <img src="Zij6.png" id="char9">
+        <img src="images/objects/Zij6.png" id="char9">
     </div>
     <div class="head">
-        <img src="Zij7.png" id="char10">
+        <img src="images/objects/Zij7.png" id="char10">
     </div>
     <div class="head">
-        <img src="Zij8.png" id="char11">
+        <img src="images/objects/Zij8.png" id="char11">
     </div>
     <div class="head">
-        <img src="Zij9.png" id="char12">
+        <img src="images/objects/Zij9.png" id="char12">
     </div>
 </div>
 </div>
@@ -233,7 +233,7 @@
             $('.hide').css('visibility','hidden')
             $('.show').show()
         }
-        setTimeout(fadeOut, 20000);
+        setTimeout(fadeOut, 10000);
         $('select').change(function() {
             $(this).hide();
             let character = $(this).attr('name');
@@ -251,7 +251,7 @@
             $(this).hide();
             shown += 1;
             $('#shown').val(shown);
-            setTimeout(fadeOut, 20000);
+            setTimeout(fadeOut, 10000);
         });
     });
 </script>
