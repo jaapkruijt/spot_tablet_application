@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    body{
-        background-color: lightblue;
-    }
-    #body_text{
-        padding: 10%;
-        text-align: center;
-    }
-    h2{
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: large;
-    }
-    #submit{
-        cursor: pointer;
-        padding: 20px;
-        font-size: x-large;
-    }
-    #next{
-        display: none;
-    }
-    #questions{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: x-large;
-    }
+
 </style>
 <head>
+    <link rel="stylesheet" href="score_round1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="score_round1.js"></script>
     <meta charset="UTF-8">
     <title>Score Round 1</title>
 </head>
@@ -62,25 +40,7 @@
         <input type="hidden" name="total_score" value="0" id="total_score">
         <input type="submit" id="submit" value="Ga door">
     </form>
-        </div>
+    </div>
 </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script>
-    const searchParams = new URLSearchParams(window.location.search);
-
-    if(searchParams.has("score")){
-        let score = searchParams.get("score");
-        $('#score').text(score)
-        $('#total_score').val(score)
-    }
-    if (searchParams.has("shown")){
-        let shown = searchParams.get("shown");
-        $('#shown').text(`${shown} keer`)
-    }
-    $('#questions').click(function (){
-        $('#qualtrics').hide();
-        $('#next').show();
-    })
-</script>
 </html>

@@ -12,6 +12,13 @@ body{
         width: 15%;
         float: left;
     }
+    .positions{
+        background-color: white;
+        border-style: solid;
+        border-width: medium;
+        border-color: black;
+        padding: 5px;
+    }
     #scene_title{
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -19,21 +26,24 @@ body{
         /*-moz-appearance: none;*/
         /*-webkit-appearance: none;*/
         cursor: pointer;
-        border-width: medium;
-        border-color: orangered;
-        background-color: transparent;
+        /*border-width: medium;*/
+        /*border-color: orangered;*/
+        border: transparent;
+        /*background-color: transparent;*/
+        width: 50px;
+        height: 50px;
     }
     label{
         font-family: Arial, Helvetica, sans-serif;
         font-size: x-large;
         /*color: red;*/
     }
-        #submit{
-        top: 70%;
-        left: 104%;
-        padding: 20px;
+    #submit{
+        top: 50%;
+        left: 100%;
+        padding: 30px;
         margin-left: 5%;
-        font-size: larger;
+        font-size: x-large;
         position: absolute;
         cursor: pointer;
         background-color: snow;
@@ -47,11 +57,7 @@ body{
         font-size: x-large;
         cursor: pointer;
     }
-    select{
-        width: 50px;
-        height: 50px;
-    }
-        img{
+    img{
         width: 100%;
         right: auto;
     }
@@ -60,7 +66,7 @@ body{
         margin: auto;
         width: 50%;
     }
-        #char1{
+    #char1{
         width: 50%;
         display: none;
     }
