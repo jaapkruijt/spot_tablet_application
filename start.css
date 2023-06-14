@@ -8,8 +8,7 @@
         width: 200px;
     }
     .faces{
-        float: left;
-        width: 85%;
+        text-align: center;
         display: inline-block;
     }
     .introduction{
