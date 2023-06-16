@@ -1,29 +1,25 @@
     // let score = 0;
     // let shown = 0;
     $(document).ready(function() {
-        // function fadeOut(){
-        //     $('.hide').css('visibility','hidden')
-        //     $('.show').show()
-        // }
-        // setTimeout(fadeOut, 10000);
         $('select').change(function() {
             $(this).hide();
-            // let character = $(this).attr('name');
-            // $('#'+character).show();
             let checkmark = $(this).attr('name');
             $('#'+checkmark).show();
-            // let answer = $(this).val();
-            // let trueAnswer = $(this).attr('class');
-            // if(answer === trueAnswer) {
-            //     score += 1;
-            //     $('#score').val(score);
-            // }
+            checkStatus();
         });
-        // $('#show').click(function(){
-        //     $('.hide').css('visibility','visible');
-        //     $(this).hide();
-        //     shown += 1;
-        //     $('#shown').val(shown);
-        //     setTimeout(fadeOut, 10000);
-        // });
+        let restURL = window.location.pathname.split('/spot')[0] + "/chatui/chat";
+        function checkStatus() {$.get(restURL + "/" + "practice/continue").done(
+            function ( data ) {
+                if(data === "true"){
+                    $('#submit').show()}
+                else{
+                    setTimeout(checkStatus, 1000);
+                }
+            }
+        ).fail(
+            function ( data ) {
+                console.log("hello", data );
+                $('#submit').show();
+            }
+        )}
     });
